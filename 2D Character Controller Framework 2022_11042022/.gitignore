@@ -1,0 +1,17 @@
+# Ignore Unity temporary files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+# Ignore macOS files (if applicable)
+.DS_Store
+
+# Ignore Visual Studio files (if applicable)
+.vs/
+*.csproj
+*.sln
+*.user

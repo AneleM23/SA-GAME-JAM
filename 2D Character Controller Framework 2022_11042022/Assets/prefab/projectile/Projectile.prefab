@@ -65,7 +65,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -83,7 +83,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa3bd6cd45a3a047b550affafae0853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 2
+  projectileSpeed: 10
+  flipSprite: 1
+  cleanupDelay: 8
+  platformPrefab: {fileID: 3034045142960310387, guid: ca7f22df253577541a171249b0ca9161,
+    type: 3}
+  vfx: {fileID: 0}
+  sfx: {fileID: 0}
 --- !u!1 &815648632455253835
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +136,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

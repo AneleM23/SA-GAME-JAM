@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour
     public float projectileSpeed = 2f;
     public bool flipSprite = true;
     public float cleanupDelay = 8f;
+    public GameObject platformPrefab;
+
     [Header("EFFECTS:")]
     public GameObject vfx; 
     public AudioSource sfx;
@@ -37,15 +39,35 @@ public class Projectile : MonoBehaviour
         // Makes sure that the sprite is facing the correct way, by checking the velocity of its RigidBody2D component.
         if (_rb.velocity.x < 0f && flipSprite)
             _sprite.flipX = true;
+
+        StartCoroutine(DestroyDelay());
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    //void OnTriggerEnter2D(Collider2D col)
+    //{
+    //    // Check to make sure that the projectile isn't hitting the player, 
+    //    // and if not, call the DestroyProjectile function below.
+    //    if (!col.CompareTag("Player") && circCol.IsTouchingLayers(_collisionLayers))
+    //    {
+    //        DestroyProjectile();
+    //    }
+    //}
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check to make sure that the projectile isn't hitting the player, 
-        // and if not, call the DestroyProjectile function below.
-        if (!col.CompareTag("Player") && circCol.IsTouchingLayers(_collisionLayers))
+        if (((1 << collision.gameObject.layer) & _collisionLayers) != 0)
         {
-            DestroyProjectile();
+            ContactPoint2D contact = collision.contacts[0];
+
+            Vector3 spawnPos = contact.point + contact.normal * 0.5f;
+            Quaternion spawnRot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+
+            GameObject newPlatform = Instantiate(platformPrefab, spawnPos, spawnRot);
+
+            // Register with manager
+            PlatformManager.Instance.RegisterPlatform(newPlatform);
+
+            Destroy(gameObject);
         }
     }
 

@@ -53,18 +53,15 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
-        // Instantiate a projectile prefab.
-        GameObject projectile;
-        projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
- 
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0f;
 
-        // If we're facing right:
-        if (transform.position.x < projectileSpawnPoint.position.x)
-            rb. velocity = transform.TransformDirection(Vector3.right * _projectileSpeed);
-        //if we're facing left:
-        else if (transform.position.x > projectileSpawnPoint.position.x)
-            rb.velocity = transform.TransformDirection(Vector3.left * _projectileSpeed);
+        Vector2 direction = (mouseWorldPos - projectileSpawnPoint.position).normalized;
+
+        GameObject proj = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+
+        Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
+        rb.velocity = transform.TransformDirection(direction * _projectileSpeed);
     }
 
     // This co-routine determines how often the player is able to shoot a projectile.
