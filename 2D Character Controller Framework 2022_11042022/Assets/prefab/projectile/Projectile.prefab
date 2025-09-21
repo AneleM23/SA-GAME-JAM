@@ -85,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 10
   flipSprite: 1
-  cleanupDelay: 2
+  cleanupDelay: 1
   platformPrefab: {fileID: 3034045142960310387, guid: ca7f22df253577541a171249b0ca9161,
     type: 3}
   hasCollided: 0

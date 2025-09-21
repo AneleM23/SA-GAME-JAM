@@ -7,7 +7,7 @@ public class PlatformManager : MonoBehaviour
     public static PlatformManager Instance;   // Singleton access
 
     public int maxPlatforms = 3;              // Limit to 3 active platforms
-    private Queue<GameObject> activePlatforms = new Queue<GameObject>();
+    [SerializeField] private Queue<GameObject> activePlatforms = new Queue<GameObject>();
 
     void Awake()
     {
@@ -24,6 +24,8 @@ public class PlatformManager : MonoBehaviour
         {
             GameObject oldest = activePlatforms.Dequeue();
             if (oldest != null) Destroy(oldest);
+            else
+                Debug.Log("oldest is null");
         }
     }
 }

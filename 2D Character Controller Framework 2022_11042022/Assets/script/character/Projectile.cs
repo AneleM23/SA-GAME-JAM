@@ -63,14 +63,7 @@ public class Projectile : MonoBehaviour
             Vector3 spawnPos = contact.point + contact.normal * 0.5f;
             Quaternion spawnRot = Quaternion.FromToRotation(Vector3.up, contact.normal);
 
-            GameObject newPlatform = Instantiate(platformPrefab, spawnPos, Quaternion.identity);
-
-            PlatformEffector2D effector = newPlatform.GetComponent<PlatformEffector2D>();
-            if (effector != null)
-            {
-                float angle = Vector2.SignedAngle(Vector2.up, contact.normal);
-                effector.rotationalOffset = angle;
-            }
+            GameObject newPlatform = Instantiate(platformPrefab, spawnPos, spawnRot);
 
             // Register with manager
             PlatformManager.Instance.RegisterPlatform(newPlatform);
@@ -100,8 +93,8 @@ public class Projectile : MonoBehaviour
         if (!hasCollided)
         {
             Instantiate(platformPrefab, gameObject.transform.position, gameObject.transform.rotation);
-            hasCollided |= true;
-            Destroy(gameObject);
+            hasCollided = true!;
+                Destroy(gameObject);
         }
        
     }
