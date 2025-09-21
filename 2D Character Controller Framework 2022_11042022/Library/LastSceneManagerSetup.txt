@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/scn/WSOA2023 - 2021 - CCF Base.unity
+- path: Assets/scn/Tutorial.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

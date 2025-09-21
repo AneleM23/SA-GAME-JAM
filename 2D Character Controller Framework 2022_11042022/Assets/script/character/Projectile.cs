@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
     public bool flipSprite = true;
     public float cleanupDelay = 8f;
     public GameObject platformPrefab;
+    public bool hasCollided = false;
 
     [Header("EFFECTS:")]
     public GameObject vfx; 
@@ -55,17 +56,26 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (((1 << collision.gameObject.layer) & _collisionLayers) != 0)
+        if (((1 << collision.gameObject.layer) & _collisionLayers) != 0 && !hasCollided)
         {
             ContactPoint2D contact = collision.contacts[0];
 
             Vector3 spawnPos = contact.point + contact.normal * 0.5f;
             Quaternion spawnRot = Quaternion.FromToRotation(Vector3.up, contact.normal);
 
-            GameObject newPlatform = Instantiate(platformPrefab, spawnPos, spawnRot);
+            GameObject newPlatform = Instantiate(platformPrefab, spawnPos, Quaternion.identity);
+
+            PlatformEffector2D effector = newPlatform.GetComponent<PlatformEffector2D>();
+            if (effector != null)
+            {
+                float angle = Vector2.SignedAngle(Vector2.up, contact.normal);
+                effector.rotationalOffset = angle;
+            }
 
             // Register with manager
             PlatformManager.Instance.RegisterPlatform(newPlatform);
+
+            hasCollided = true;
 
             Destroy(gameObject);
         }
@@ -86,6 +96,13 @@ public class Projectile : MonoBehaviour
         // This co-routine waits for a set amount of time before destroying the projectile
         // so that we don't end up with millions of projectiles in the scene.
         yield return new WaitForSeconds(cleanupDelay);
-        Destroy(gameObject);
+
+        if (!hasCollided)
+        {
+            Instantiate(platformPrefab, gameObject.transform.position, gameObject.transform.rotation);
+            hasCollided |= true;
+            Destroy(gameObject);
+        }
+       
     }
 }

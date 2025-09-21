@@ -70,7 +70,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.2
 --- !u!114 &3082952644002286185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,9 +85,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 10
   flipSprite: 1
-  cleanupDelay: 8
+  cleanupDelay: 2
   platformPrefab: {fileID: 3034045142960310387, guid: ca7f22df253577541a171249b0ca9161,
     type: 3}
+  hasCollided: 0
   vfx: {fileID: 0}
   sfx: {fileID: 0}
 --- !u!1 &815648632455253835
