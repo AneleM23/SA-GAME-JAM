@@ -24,8 +24,6 @@ public class PlatformManager : MonoBehaviour
         {
             GameObject oldest = activePlatforms.Dequeue();
             if (oldest != null) Destroy(oldest);
-            else
-                Debug.Log("oldest is null");
         }
     }
 }
