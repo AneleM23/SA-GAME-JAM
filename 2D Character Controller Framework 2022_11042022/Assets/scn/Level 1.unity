@@ -1379,6 +1379,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5356215915640200464, guid: 2bf24228a9d811844a4333a82af48b98,
+        type: 3}
+      propertyPath: orthographic size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5356215915640200467, guid: 2bf24228a9d811844a4333a82af48b98,
         type: 3}
       propertyPath: m_Name
@@ -1392,7 +1397,7 @@ PrefabInstance:
     - target: {fileID: 5356215915640200687, guid: 2bf24228a9d811844a4333a82af48b98,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 5356215915640200687, guid: 2bf24228a9d811844a4333a82af48b98,
         type: 3}
@@ -1448,6 +1453,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4442908847199513201, guid: cb9be00577e2ff0489c9f59ccbfbb0a9,
+        type: 3}
+      propertyPath: m_TrackedObjectOffset.x
+      value: 4.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4442908847318351020, guid: cb9be00577e2ff0489c9f59ccbfbb0a9,
         type: 3}
       propertyPath: m_Name
@@ -1542,6 +1552,16 @@ PrefabInstance:
         type: 3}
       propertyPath: projectileCollision.m_Bits
       value: 3712
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442908847609045463, guid: cb9be00577e2ff0489c9f59ccbfbb0a9,
+        type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442908847609045464, guid: cb9be00577e2ff0489c9f59ccbfbb0a9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 4442908847609045464, guid: cb9be00577e2ff0489c9f59ccbfbb0a9,
         type: 3}
