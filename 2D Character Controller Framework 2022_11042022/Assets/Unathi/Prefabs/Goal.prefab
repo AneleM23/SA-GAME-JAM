@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3081871721594921306}
   - component: {fileID: 3081871721594921307}
   - component: {fileID: 3081871721594921304}
-  - component: {fileID: 3081871721594921305}
   - component: {fileID: 4537828735075461872}
+  - component: {fileID: 7102551294115371221}
   m_Layer: 13
   m_Name: Goal
   m_TagString: Untagged
@@ -111,19 +111,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3081871721594921305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3081871721594921310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de26e4c11f4b0e4a91cbc45efc2eabc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: Level 1
 --- !u!60 &4537828735075461872
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -255,3 +242,17 @@ PolygonCollider2D:
       - {x: -0.105, y: 1.6949999}
       - {x: -0.024999999, y: 1.6949999}
       - {x: -0.024999999, y: 1.625}
+--- !u!114 &7102551294115371221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081871721594921310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31f74988b2347e41b8818c62315de68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCompleteUI: {fileID: 6123194190551781535, guid: 21df703ea0ad82c4ea9b0a8eba848897,
+    type: 3}
